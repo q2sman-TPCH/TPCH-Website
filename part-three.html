@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Part Three: Our Own Articles | Parampara eMagazine | TPCH</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',sans-serif;color:#2C1810;background:#F5F0E8}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:10px 32px;background:#1a0e09;border-bottom:1px solid rgba(245,240,232,0.08)}
+  .nav-logo{display:flex;align-items:center;gap:12px}
+  .nav-logo img{width:54px;height:54px;border-radius:50%;object-fit:cover;background:#000}
+  .nav-name{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;line-height:1.35;color:#F5F0E8;max-width:170px}
+  .nav-name span{color:#F5F0E8;font-size:11px;font-weight:400;display:block;letter-spacing:0.04em}
+  .nav-tpch{font-family:'Cormorant Garamond',serif;font-size:11px;font-weight:600;letter-spacing:0.18em;color:#E8723A;text-transform:uppercase;display:block;margin-bottom:2px}
+  .nav-links{display:flex;gap:20px}
+  .nav-links a{font-size:12px;color:rgba(245,240,232,0.65);text-decoration:none}
+  .nav-cta{background:#C4420A;color:#F5F0E8;border:none;border-radius:6px;padding:8px 18px;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif}
+  .hero{position:relative;min-height:680px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+  .hero-bg{position:absolute;inset:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:blur(3px) brightness(0.85);transform:scale(1.04)}
+  .hero-overlay{position:absolute;inset:0;background:rgba(26,14,9,0.60)}
+  .hero-content{position:relative;z-index:2;padding:72px 32px 64px;width:100%}
+  .hero-badge{display:inline-block;background:rgba(196,66,10,0.3);border:1px solid rgba(196,66,10,0.6);color:#E8723A;font-size:28px;font-family:'Cormorant Garamond',serif;font-weight:500;padding:6px 22px;border-radius:20px;margin-bottom:18px;letter-spacing:0.03em}
+  .hero h1{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#F5F0E8;margin:0 0 14px;line-height:1.12}
+  .hero h1 span{color:#E8723A}
+  .hero-sub{font-size:15px;color:rgba(245,240,232,0.8);max-width:480px;margin:0 auto 32px;line-height:1.7}
+  .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn-terra{background:#C4420A;color:#F5F0E8;border:none;border-radius:6px;padding:12px 26px;font-size:14px;cursor:pointer;font-family:'DM Sans',sans-serif}
+  .btn-ghost{background:transparent;color:#F5F0E8;border:1.5px solid rgba(245,240,232,0.5);border-radius:6px;padding:12px 26px;font-size:14px;cursor:pointer;font-family:'DM Sans',sans-serif}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);background:#E8D5B0}
+  .stat{padding:22px 16px;text-align:center;border-right:1px solid #D4B896}
+  .stat:last-child{border-right:none}
+  .stat-num{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#C4420A}
+  .stat-lbl{font-size:11px;color:#5C3D2E;margin-top:3px}
+  .sec{padding:56px 32px;background:#F5F0E8}
+  .sec-alt{padding:56px 32px;background:#EDE5D4}
+  .sec-lbl{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#C4420A;margin-bottom:10px;font-weight:500}
+  .sec h2{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:#2C1810;margin:0 0 14px;line-height:1.2}
+  .sec p{font-size:15px;color:#5C3D2E;line-height:1.75;max-width:580px}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .img-ph{background:#E8D5B0;border-radius:10px;height:270px;display:flex;align-items:center;justify-content:center;color:#8B6347;font-size:13px;border:1px solid #D4B896}
+  .fest{background:#2C1810;padding:56px 32px}
+  .fest .sec-lbl{color:#E8723A}
+  .fest h2{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:#F5F0E8;margin:0 0 12px}
+  .fest p{font-size:15px;color:rgba(245,240,232,0.7);line-height:1.75;max-width:580px}
+  .fest-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+  .fest-card{background:rgba(245,240,232,0.06);border:1px solid rgba(245,240,232,0.12);border-radius:10px;padding:20px}
+  .fest-card-dot{width:32px;height:32px;background:rgba(196,66,10,0.25);border-radius:7px;margin-bottom:12px;display:flex;align-items:center;justify-content:center}
+  .fest-card h3{font-size:14px;font-weight:500;color:#F5F0E8;margin:0 0 6px}
+  .fest-card p{font-size:12px;color:rgba(245,240,232,0.6);margin:0;line-height:1.6}
+  .act-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+  .act-card{background:#F5F0E8;border:1px solid #D4B896;border-top:3px solid #C4420A;border-radius:0 0 8px 8px;padding:18px}
+  .act-card h3{font-size:14px;font-weight:500;color:#2C1810;margin:0 0 6px}
+  .act-card p{font-size:12px;color:#5C3D2E;margin:0;line-height:1.6}
+  .quote{padding:56px 32px;text-align:center;background:#F5F0E8}
+  .quote-rule{width:48px;height:2px;background:#C4420A;margin:0 auto 24px}
+  blockquote{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;color:#2C1810;max-width:660px;margin:0 auto 14px;line-height:1.55}
+  cite{font-size:12px;color:#8B6347}
+  .cta{background:#C4420A;padding:48px 32px;text-align:center}
+  .cta h2{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:#F5F0E8;margin:0 0 10px}
+  .cta p{font-size:14px;color:rgba(245,240,232,0.8);margin:0 0 22px}
+  .cta-btns{display:flex;gap:12px;justify-content:center}
+  .btn-light{background:#F5F0E8;color:#C4420A;border:none;border-radius:6px;padding:11px 26px;font-size:13px;font-weight:500;cursor:pointer}
+  .btn-ghost2{background:transparent;color:#F5F0E8;border:1.5px solid rgba(245,240,232,0.5);border-radius:6px;padding:11px 26px;font-size:13px;cursor:pointer}
+  footer{background:#1a0e09;padding:40px 32px 20px}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;margin-bottom:28px}
+  .foot-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .foot-logo img{width:46px;height:46px;border-radius:50%;background:#000}
+  .foot-name{font-family:'Cormorant Garamond',serif;font-size:13px;color:#F5F0E8;line-height:1.4}
+  footer .fp{font-size:12px;color:rgba(245,240,232,0.5);line-height:1.7;max-width:270px}
+  footer h4{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#E8723A;margin:0 0 12px;font-weight:500}
+  footer ul{list-style:none;padding:0;margin:0}
+  footer ul li{margin-bottom:7px;font-size:12px;color:rgba(245,240,232,0.55)}
+  footer ul li a{font-size:12px;color:rgba(245,240,232,0.55);text-decoration:none}
+  .foot-bot{border-top:1px solid rgba(245,240,232,0.08);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .foot-bot p{font-size:11px;color:rgba(245,240,232,0.28)}
+
+  /* ---- Mobile nav toggle (hidden on desktop) ---- */
+  .nav-toggle{display:none;background:none;border:none;padding:4px;cursor:pointer}
+  .nav-menu{display:contents}
+
+  /* ---- Tablet ---- */
+  @media (max-width:768px){
+    nav{flex-wrap:wrap;padding:10px 20px}
+    .nav-name{max-width:150px;font-size:12px}
+    .nav-toggle{display:block}
+    .nav-menu{display:none;flex-direction:column;align-items:stretch;gap:14px;width:100%;order:10;margin-top:14px;padding-top:14px;border-top:1px solid rgba(245,240,232,0.1)}
+    nav.nav-open .nav-menu{display:flex}
+    .nav-links{flex-direction:column;gap:14px}
+    .nav-links a{font-size:14px;padding:6px 0}
+    .nav-join{width:100%}
+    .nav-cta{width:100%}
+
+    .hero{min-height:auto}
+    .hero-content{padding:48px 20px 36px}
+    .hero-badge{font-size:18px;padding:5px 16px}
+    .hero h1{font-size:26px}
+    .hero-sub{font-size:14px}
+
+    .sec,.sec-alt,.fest,.quote,.cta{padding:40px 20px}
+    .sec h2,.fest h2{font-size:28px}
+    .two-col{grid-template-columns:1fr;gap:28px}
+    .img-ph{height:200px}
+    .fest-cards{grid-template-columns:repeat(2,1fr)}
+    .act-grid{grid-template-columns:repeat(2,1fr)}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:24px}
+  }
+
+  /* ---- Phone ---- */
+  @media (max-width:480px){
+    .nav-name{display:none}
+    .hero-badge{font-size:15px;padding:4px 12px}
+    .hero h1{font-size:22px}
+    .sec h2,.fest h2{font-size:24px}
+    .fest-cards{grid-template-columns:1fr}
+    .act-grid{grid-template-columns:1fr}
+    .cta-btns{flex-direction:column;align-items:center}
+    .foot-grid{grid-template-columns:1fr}
+    blockquote{font-size:19px}
+  }
+
+  /* ---- eMagazine: Kids' Corner ---- */
+  .emag-crumb{font-size:12px;color:rgba(245,240,232,0.55);margin-bottom:14px}
+  .emag-crumb a{color:#E8723A;text-decoration:none}
+  .emag-edition{display:inline-block;background:rgba(196,66,10,0.3);border:1px solid rgba(196,66,10,0.6);color:#E8723A;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px}
+  .kids-intro p{font-size:14px;color:#5C3D2E;max-width:620px;margin:0 0 0;line-height:1.75}
+  .kids-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+  .kid-card{background:#F5F0E8;border:1px solid #D4B896;border-top:3px solid #C4420A;border-radius:0 0 10px 10px;overflow:hidden;display:flex;flex-direction:column}
+  .kid-card-img{background:#fff;display:flex;align-items:center;justify-content:center;height:300px;padding:12px}
+  .kid-card-img img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+  .kid-card-cap{padding:14px 16px;text-align:center;border-top:1px solid #D4B896}
+  .kid-card-cap h3{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:#2C1810;margin:0 0 2px}
+  .kid-card-cap p{font-size:12px;color:#8B6347;margin:0;letter-spacing:0.02em}
+
+  @media (max-width:768px){
+    .kids-grid{grid-template-columns:repeat(2,1fr)}
+    .kid-card-img{height:260px}
+  }
+  @media (max-width:480px){
+    .kids-grid{grid-template-columns:1fr}
+    .kid-card-img{height:320px}
+  }
+
+  /* ---- eMagazine: landing / archive ---- */
+  .editions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+  .ed-card{background:#F5F0E8;border:1px solid #D4B896;border-top:3px solid #C4420A;border-radius:0 0 10px 10px;padding:24px;display:flex;flex-direction:column}
+  .ed-card.is-soon{border-top-color:#D4B896}
+  .ed-year{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:#2C1810;margin:0 0 4px}
+  .ed-title{font-size:12px;color:#8B6347;margin:0 0 12px}
+  .ed-badge{display:inline-block;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:14px}
+  .ed-badge.live{background:rgba(196,66,10,0.15);color:#C4420A}
+  .ed-badge.soon{background:#E8D5B0;color:#8B6347}
+  .ed-desc{font-size:13px;color:#5C3D2E;line-height:1.65;flex:1;margin:0 0 18px}
+  .ed-link{font-size:13px;font-weight:500;color:#C4420A;text-decoration:none}
+  .ed-link.disabled{color:#8B6347;pointer-events:none}
+  @media (max-width:768px){
+    .editions-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:480px){
+    .editions-grid{grid-template-columns:1fr}
+  }
+
+  /* ---- eMagazine: Part One front matter ---- */
+  .letter{max-width:680px;margin:0 0 46px}
+  .letter h3{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:#2C1810;margin:0 0 6px}
+  .letter .byline{font-size:12px;color:#8B6347;font-style:italic;margin:0 0 16px}
+  .letter p{font-size:14px;color:#5C3D2E;line-height:1.85;margin:0 0 14px}
+  .letter-rule{width:36px;height:1px;background:#D4B896;margin:18px 0}
+  .letter .sig{margin-top:16px}
+  .letter .sig strong{display:block;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:#2C1810}
+  .letter .sig span{font-size:12px;color:#8B6347;font-style:italic}
+  .committee-table{width:100%;max-width:680px;border-collapse:collapse;margin-top:8px}
+  .committee-table th,.committee-table td{text-align:left;padding:10px 14px;font-size:13px;border-bottom:1px solid #D4B896}
+  .committee-table th{color:#8B6347;text-transform:uppercase;font-size:11px;letter-spacing:0.05em;font-weight:500}
+  .committee-table td{color:#2C1810}
+  .part-photo{max-width:780px;margin-top:22px}
+  .part-photo img{width:100%;border-radius:10px;border:1px solid #D4B896;display:block}
+  .part-photo p{font-size:12px;color:#8B6347;margin-top:10px;font-style:italic}
+  .part-nav{display:flex;justify-content:space-between;align-items:center;padding:22px 32px;background:#EDE5D4;border-top:1px solid #D4B896;flex-wrap:wrap;gap:14px}
+  .part-nav .label{display:block;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:#8B6347;margin-bottom:3px}
+  .part-nav a{font-size:14px;font-weight:500;color:#C4420A;text-decoration:none}
+  .part-nav .disabled{font-size:14px;font-weight:500;color:#8B6347}
+  .part-nav .next-side{text-align:right}
+  @media (max-width:480px){
+    .part-nav{padding:18px 20px}
+  }
+</style>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="data:image/png;base64,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" alt="TPCH Logo"/>
+    <div class="nav-name">Tauranga Probasi<br>Cultural Heritage<span style="color:#F5F0E8">Incorporated</span></div>
+  </div>
+  <button class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('nav-open')" aria-label="Toggle menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5F0E8" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <div class="nav-menu">
+      <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="festival.html">Festival</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="celebrations.html">Celebrations</a>
+    <a href="emagazine.html" style="color:#E8723A">eMagazine</a>
+    <a href="support.html">Support Us</a>
+    <a href="membership.html">Membership</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="membership.html" class="nav-join"><button class="nav-cta">Join Us</button></a>
+  </div>
+</nav>
+<div class="sec">
+  <div class="emag-crumb"><a href="emagazine.html">&larr; Parampara eMagazine</a></div>
+  <div class="sec-lbl">Part Three</div>
+  <h2>Our Own Articles</h2>
+  <div class="kids-intro"><p>Stories, memories, and a dance through three decades &mdash; from our own TPCH members and their families, here in Tauranga and beyond.</p></div>
+</div>
+
+<div class="sec-alt">
+
+<div class="letter">
+  <h3>Durga Puja Note</h3>
+  <p class="byline">Darsh Kar (Age 4&#189;), Tauranga, New Zealand</p>
+  <div class="part-photo" style="max-width:420px;margin-top:8px">
+    <img src="images/emagazine/2025/part-three/darsh-note.jpg" alt="Handwritten note by Darsh Kar: Namaskar! My name is Darsh. I am 4.5 years old. I love all festivals, but Durga Puja and Diwali are my favourite. I am excited to celebrate Durga Puja with my Dida, Dadu and little brother. Shubho Durga Puja!"/>
+  </div>
+</div>
+
+<div class="letter">
+<h3>Richa's Durga Puja with Family</h3>
+<p class="byline">Miss Richa Pal, Tauranga, New Zealand</p>
+<p>Hi my name is Richa and I am from Papamoa, New Zealand. In my family I have mum, dad, little brother Noni and my pet budgie Pico.</p>
+<p>Every Durga puja I love to dance, do anjali and have fun with family and friends. I love to join the little art competition. I also like to wear pretty dresses which I got from Kolkata. On puja morning me, my mum and my brother Noni get heaps of flowers from our garden, but Noni sometimes rips the flowers. I also love to draw, sketch and paint. Last year, I performed a dance show and I also participated in art competition. Also the things I love is birds because they fly and they have beautiful colours. I love budgies, macaws, sparrows and more. When I grow up I want to be like my mum. I love my family. Enjoy Durga Puja everyone.</p>
+</div>
+
+<div class="letter">
+<h3>Princess Pearl and the Magical World of Shoplandia</h3>
+<p class="byline">Miss Pearl Biswas, Tauranga, New Zealand</p>
+<p>Once there was a girl named Pearl and she was actually a real princess (not just in her dreams, but for real!).</p>
+<p>Every morning, the maid would say, “Time to wake up, Princess!”</p>
+<p>Pearl woke up, still half-asleep and searched for her shoes among the mountain of endless stuff. Pearl LOVED shopping - she bought way too much stuff, so her room looked like a tornado that ripped through the store.</p>
+<p>One day, a magical bird named Reign, with delicate, emerald and sapphire feathers like jewels, flew in through her window.</p>
+<p>Pearl screamed, “Maid, where are my black shoes?”</p>
+<p>“The ones with buckles?” Maid asked.</p>
+<p>Pearl agitated, “No! The ones with buttons!”</p>
+<p>After a big search, the shoes were finally found.</p>
+<p>“Princess, a note has been delivered for you” says the maid politely.</p>
+<p>“Dear Princess Pearl, you are invited to the GRAND OPENING of Shoplandia! To get there, just say ‘UP UP Shoplandia’ and to exit, say ‘DOWN DOWN Shoplandia’” – the note says.</p>
+<p>Pearl felt bubbles of excitement popping in her tummy. She grabbed some money, and with Reign, she yelled, “UP UP Shoplandia!”</p>
+<p>Suddenly, she was in Shoplandia, a place packed with cool things - clothes, shoes, toys, candy, yummy ice cream, and loads of other stuff. Pearl was having the best time ever because EVERYTHING was free! Pearl got carried away. But little did she know that every time she grabbed something new, a tiny bit of her memories disappeared.</p>
+<p>Slowly her memories started to fade away. Reign started to worry a lot and shouted, “DOWN DOWN Shoplandia!” Zoom! he was out.</p>
+<p>Reign flew as fast as he could for a whole hour and finally found a little cottage in the middle of a rain forest. He yelled, hoping someone could help.</p>
+<p>An old lady opened the door and whispered, “Come in, quick!”</p>
+<p>Reign explained everything. The old lady nodded and said, “I am the wisest person in Shoplandia. Bring Pearl here and I can help.”</p>
+<p>Reign hurried back, but by then, Pearl had forgotten almost everything - even her own name! He begged her to come see the lady, hoping she could help get Pearl’s memories back. Pearl though confused and clueless, she trusted the bird.</p>
+<p>After an hour-long journey, they arrived at the cottage of the elderly woman who had given the instructions.</p>
+<p>“Listen carefully. You are Princess Pearl. You were in Shoplandia and had lost your memories. To regain, you MUST give away all stuff you got from Shoplandia. Only then you would be free.”</p>
+<p>Pearl followed the instructions. As she returned to Shoplandia, she started giving away all the things she gathered. Immediately she regained her memories and flew back with Reign to her palace.</p>
+<p>“Reign, you are the best friend a princess could ever ask for! Thank you!” Pearl said.</p>
+<p>The palace was never the same. Her room, once full of things and cluttered, now felt open, bright and instead of clothes on the ground you can see the elegant pattern on the ground.</p>
+<p>Princess Pearl realised that life, friends and memories are the real treasures - not having too many material possessions. Reign and Pearl became the best pair of friends forever.</p>
+<p>The end!!</p>
+</div>
+
+<div class="letter">
+  <h3>Tornadoes</h3>
+  <p class="byline">Miss Sonika Banerjee, Hamilton, New Zealand</p>
+  <div class="part-photo">
+    <img src="images/emagazine/2025/part-three/sonika-tornadoes.jpg" alt="A hand-made poster by Sonika Banerjee titled Tornadoes, explaining how tornadoes form, tornado facts, and a diagram of tornado formation, signed 'by Sonika'"/>
+  </div>
+</div>
+
+<div class="letter">
+<h3>Echoes of the Dhaak: The Timeless Magic of Durga Puja — From Assam to Aotearoa</h3>
+<p class="byline">Mr. Amardeep Nath, Tauranga, New Zealand</p>
+<p>The xarodiya season had commenced. Over Guwahati, clear blue skies with drifting white clouds met a gentle autumn breeze, and the city buzzed with anticipation for the upcoming Durga Puja. For me, at seven years old, this was the highlight of the year, my first Durga Puja in Assam. But this year was even more special, my six-year-old younger brother was finally old enough to join me in the festivities. His excitement mirrored mine as we prepared for the wonderful days ahead.</p>
+<p>The Toy Shop Adventure</p>
+<p>That morning, I could not wait to buy a new toy. Papa handed me a five rupee note. He gave my younger brother one too, so he could get something for himself. We hurried to Kalita uncle’s toy shop, a small shop next to a sweet shop on the main road. The shop was bustling with children, all busy picking out their favourite toys. Balloons and paper windmills hung above us. On the counter were my favourite toy pistols and red paper caps. I picked a black and silver pistol, and my brother picked a little red toy car. Outside, I loaded caps into my pistol and fired it to hear the sound. My brother pushed his car along the pavement, looking like the happiest person in the world. We walked home together, holding our new toys, excited for the evening.</p>
+<p>Dressing Up for the Evening</p>
+<p>As evening came, Maa dressed us warmly. I wore my blue checked shirt and sweater, while my brother wore his red sweater and shorts. “Stay together with us and don’t get lost” Maa said.</p>
+<p>Pandal Hopping Magic</p>
+<p>The streets were vibrant with activity, decorated with lights suspended across bamboo frameworks. Vendors had set up food stalls along the road, and the scent of jalebis and aloo chops filled the autumn air. Crowds surged toward the grand pandals, the air buzzing with excitement as the sound of dhaak drums rolled through the streets, mingling with laughter and the distant echo of conch shells. Everywhere you looked, women in bright sarees and men in crisp kurtas moved between stalls, their faces lit up by colourful fairy lights strung above the bamboo framework.</p>
+<p>The first pandal we visited was a simple bamboo structure, draped with colourful cloth and woven mats. Strings of bare bulbs glowed overhead, casting a warm, familiar light on the clay idol of Durga. Inside, the ground was covered in carpets, and neighbours greeted one another, sharing sweets and laughter as the priest prepared for the evening’s aarti. The goddess Durga stood magnificent, her face painted with intricate detail, flanked by Lakshmi, Saraswati, Kartik, and Ganesha. The scent of incense mingled with the fragrance of flowers. The priest stood in front of the idol, ringing a bell and waving a tray of lamps as he performed the aarti. When he finished, he handed out payesh to everyone, which we ate happily.</p>
+<p>Outside the pandal, the fair was in full swing. Stalls sold steaming plates of aloo chops and crispy jalebis, while further down, a man twisted hot sugar into pink clouds of cotton candy. We spotted a group of dhunuchi dancers swirling with incense holders, their feet moving in time with the drums as the crowd cheered them on. My brother tugged my hand, wanting to try the ferris wheel set up near the pandal field. The wheel creaked as we went up, giving us a dazzling view of the pandals glowing in the evening light. Back on the ground, Papa called us over to buy singara and jalebis, their syrupy sweetness sticking to our fingers.</p>
+<p>As the night grew deeper, the pandals sparkled brighter, and the air buzzed with life-dances, songs, laughter, and the never-ending rhythm of the dhaak. We four walked home, our toys in hand, our hearts full of the magic and memories of Durga Puja in Assam.</p>
+<p>A Thread Across Continents</p>
+<p>As I walk down memory lane today, the scent of incense, the taste of syrupy jalebis, and the echo of dhaak drums all come rushing back as if I am once again that child, hand in hand with my brother, lost in the magic of our very first Durga Puja. Those memories, shining like fairy lights at night, stay in my heart and remind me of home and family.</p>
+<p>Now, here in Tauranga, New Zealand, our small community of Probashi Indians gathers to celebrate Durga Puja with the same zeal and devotion every year.</p>
+<p>So far from our country yet carrying its spirit within us. Even in this distant land, the enchantment of the festival lingers, shaping our love for celebration and strengthening the bonds that tie us together, across continents and generations. I also want to share those moments with my daughter, who was born in Aotearoa. Someday, I will take her to India during the festival so she can feel its magic the way I once did.</p>
+<p>“Jai Maa Durga”</p>
+<p>Festival, Friendships and Finding Home</p>
+<p>Mrs. Prathima Rao, Tauranga, New Zealand</p>
+<p>I was Fourteen when we moved to Shillong. By then, moving every few years was second nature—life as an Air Force family meant a trail of postings across India: Coimbatore in the South, Jamnagar in the West, Srinagar in the North, even a stint in the jungles of Madhya Pradesh. In between, there was always Bangalore, my birthplace. Just before Shillong, we had lived in Belgaum, a town in Karnataka bordering Maharashtra. Which meant the local culture was a mix of the two states – even the Kannada there had a touch of Marathi.</p>
+<p>Arrival in Shillong</p>
+<p>So, when we arrived in Shillong, I was curious, but also a little wary. Back home in Karnataka, the Northeast seemed like a faraway land—many simply called it “Assam,” unaware that seven states made up this region. Soon I learned that Shillong, often called the ‘Scotland of the East’, and the summer retreat of officials of British India, had become the capital of Meghalaya in 1972. Its hills carried the voices of the Khasis, Jaintias, and Garos, whose languages and music echoed everywhere.</p>
+<p>Finding My Tribe</p>
+<p>At St. Mary’s High School, I was welcomed warmly, but I couldn’t help noticing how different many classmates looked—features tracing back to Cambodia, Vietnam, even Thailand. It was fascinating and intimidating too. I gravitated toward girls who looked more like me. They happened to be Bengalis; families rooted in Shillong for generations. They embraced me instantly, without hesitation, and in their friendship, I found my anchor. They were the ones who opened the door to the magic of Durga Puja.</p>
+<p>The Magic of Durga Puja</p>
+<p>My first Puja experience was of dazzling rows of glowing pandals, the goddess radiant in red and gold, incense heavy in the air, dhak drums pounding. It felt overwhelming, yet strangely familiar, reminding me of Ganesh Chaturti in Belgaum, where communities raised pandals, cooked, sang, and celebrated side by side. Mysore Dussehra was all royal grandeur and spectacle, but Shillong’s Puja was something different—it was lived from the inside, a true community event.</p>
+<p>Here, everyone belonged. Khasis, Bengalis, Nepalis and even newcomers like us joined in as organisers and volunteers. Each neighbourhood took pride in décor, lights, and cultural programs—blending Khasi songs, Bengali plays, and Western rhythms. Unlike Kolkata’s grandeur, Shillong’s Puja carried a homely warmth.</p>
+<p>Did You Know? Durga Puja in Shillong dates back to 1896, with the first public puja organised in the Laban area.</p>
+<p>Puja Studio Shots</p>
+<p>One memory shines brighter than most: the khichdi bhog at the *Ramakrishna Mission*. The queue stretched endlessly, yet there was always room for more. My friends pulled me along, whispering tips—how to balance the steel plate, when to stop the labra to save space for payesh, even how to slip back into line for seconds. Year after year, Puja stopped being something I attended and became something I claimed. For me, Puja was more than a celebration—it was a rite of passage, proof that I had found my “tribe.” And for a teenage girl, there’s nothing more precious than finding that group where you truly belong. And of course, there were the *“mandatory portraits”— Our Instagram of the ’80s.</p>
+<p>University and Beyond</p>
+<p>When my father’s posting in Shillong ended, my parents moved on, but I stayed for university. By then, my friends and their families had become my own, offering love and support that filled the gap of living away from home. Though I stayed in a hostel, weekends and holidays were spent at their tables, in homes that welcomed me without question. University widened my circle further. Students from Assam and across the Northeast brought new songs, foods, and rituals—different ways of celebrating the same Durga Puja. Soon the festival blended seamlessly with Christmas carols, Diwali diyas, and Eid feasts.</p>
+<p>It was here that I met Debu, who embodied Shillong’s cultural blend. Both our families were wanderers, and it felt natural to build a life together. Five years into marriage, with our little boy in tow, we set out again—this time to New Zealand, that far-off island most back home only knew as “near Australia,” with more sheep than people. Another chapter in our wandering story, and another home to claim as our own.</p>
+<p>From Shillong to Aotearoa</p>
+<p>That was twenty-three years ago. Hard to believe. It’s longer than I ever lived in any city in India, and yet the pattern continues. Here too, we’ve found a tribe—only now it’s global, with friends from every continent. Festivals are still our markers of belonging: Durga Puja and Diwali, but also Christmas and Matariki.</p>
+<p>Looking back, I see a thread running through it all. Ganesh Chaturti in Belgaum, Dussehra in Mysore, Durga Puja in Shillong, and now multicultural festivals in New Zealand. Each different, each carrying its own rituals and flavours, yet all sharing the same spirit—community, celebration, renewal.</p>
+<p>I’ve learned that home isn’t just where you were born, or even where your parents lived. Home is the community you grow into, the friendships that hold you steady, the festivals that gather you close, the tribe that makes you feel you belong. And as always, I look forward to what the next chapter of this wandering life will bring.</p>
+<p>Evolution of Rhythmic oxygen: Indian classical and semi-classical dance journey</p>
+</div>
+
+<div class="letter">
+  <h3>Evolution of Rhythmic Oxygen: Indian Classical and Semi-Classical Dance Journey</h3>
+  <p class="byline">Dr. Goldy De Bhowmick, Tauranga, New Zealand</p>
+  <p>&ldquo;Taka dimi taka junu&rdquo;&hellip;Adi Thalum &ndash; the 8 beat cycle still buzzes in my ears and even after a few decades, whenever I compose any dance, glimpses of these notes flash in my heart and mind. At the age of two and a half years I started my formal training in Bharatnatyam (Indian classical dance). Initially, I did not enjoy these classes &ndash; partly because I was lazy, but at the same time I was anxious, shy, and scared, as my Gurumaa (Smt. Chandana Pal) was very strict during the classes. I still vividly remember my dance school dress &ndash; a white-red frock-cutting churidar. The Bharatnatyam classes were composed of both theoretical and practical sessions. The practical sessions comprised hand movements mainly called Mudras, followed by leg movements and facial expressions. The facial expressions include &ldquo;Nobo Rosh&rdquo; &ndash; these are the foundation pillars of facial movements and expressions in dance, and they are quite similar across other Indian classical dance forms such as Kathak, Odissi, Manipuri, Kuchipudi, and Mohiniyattam.</p>
+  <div class="part-photo" style="max-width:340px">
+    <img src="images/emagazine/2025/part-three/goldy-photo1.jpg" alt="Goldy with her teacher Miss Anuradha Sen after a school performance"/>
+    <p>Me with one of my beloved teachers, Miss Anuradha Sen, at school &ndash; pampering me after my performance. I was in high school.</p>
+  </div>
+  <p>With the passage of time, as I was growing up, I unknowingly fell in love with dance &ndash; now I eagerly waited for my dance classes. My passion was well reflected in my art. Eventually, I was noticed amongst my peers for my dancing skills, and I managed to grab solo performances amongst huge competition in upcoming programs in my city, Kharagpur. Along with Bharatnatyam, I started my formal training in Rabindra Nritya as well &ndash; I was in 4th standard back then. My parents encouraged me and took me to Midnapore, the district town in West Bengal, to give me better exposure. Soon after completing my bachelor's degree in both Bharatnatyam and Rabindra Nritya from Pracheen Kala Kendra, Chandigarh University (affiliated to KUK, Kurukshetra, approved by the UGC), I started participating in wider dance programs and competitions at the district level. During this time, at a dance competition held during Durga Puja, I performed the famous Rabindra Nritya &ldquo;Bodhu kon aalo laglo chokhe&rdquo;, where I met Shri Anupam Kanti Chandra &ndash; a renowned Kathak dancer in the Midnapore region who received his formal training from Shri Birju Maharaj ji. Watching Anupam uncle's dance felt like submerging oneself into the Ganges &ndash; my dance-dream world came to a standstill. I wanted to learn Kathak from him, especially the Kathak speed technique and strategic stage utilisation, and I approached him humbly. Anupam uncle noticed me and welcomed my aspirations, but advised me to stick with my expertise &ndash; Bharatnatyam and Rabindra Nritya &ndash; as the dance forms were totally different. Meanwhile, he encouraged me to dance with him at various programs in and around Kharagpur and Midnapore &ndash; the golden period of my dance began. The first dance I performed with him, at the age of 14, was &ldquo;Amar raat pohalo&rdquo; &ndash; a Rabindra Nritya applauded by many renowned artists in the town. Our duo performances continued, ranging from Rabindra Nritya to lok nritya, modern Bengali songs, semi-classical songs, and instrumental music. Apart from Kharagpur and Midnapore, we also performed in various towns and cities across West Bengal, including Jhargram, Mecheda, Tamluk, Balichak, and Kolkata &ndash; and I cannot forget our performances specifically at Girish Mancha, Sisir Mancha, and Rabindra Sadan in Kolkata. During this time, I even earned the title of &ldquo;Lashyamoyee&rdquo; from Anupam uncle for my dance postures and expressions. I thank God for the opportunity to learn from these incredible mentors &ndash; amar sotokoti pronam! Just when I was at my rhythmic peak, I had to choose between my studies and my extra-curricular activities &ndash; it was so difficult to choose. I felt like a fish without water. Following the traditional norm, my dance journey paused for a few years as I prioritised my studies. However, the evolution of rhythmic oxygen continued, from my university days in India to New Zealand, and perhaps the journey will continue even after I am gone, through my daughter Pearl. I hope she will understand the essence of dance and love dancing like me one day!</p>
+  <div class="part-photo" style="max-width:340px;display:inline-block;margin-right:16px">
+    <img src="images/emagazine/2025/part-three/goldy-photo2.jpg" alt="Goldy performing as Horotoni from Tasher Desh"/>
+    <p>Me playing the character of Horotoni from Tasher Desh &ndash; a dance drama by Rabindranath Tagore, during my IIT Kharagpur days, 2012.</p>
+  </div>
+  <div class="part-photo" style="max-width:340px">
+    <img src="images/emagazine/2025/part-three/goldy-photo3.jpg" alt="Goldy's first dance performance, Rupang Dehi Jayang Dehi, at Probasee 2015 Durga Puja in Auckland"/>
+    <p>My first dance performance, &ldquo;Rupang dehi jayang dehi&rdquo;, at Probasee 2015 Durga Puja in Auckland, NZ.</p>
+  </div>
+</div>
+
+<div class="letter">
+<h3>A Globetrotter's Memoir – a Voyage of Unexpected Twist</h3>
+<p class="byline">Dr. Palash Biswas, Tauranga, New Zealand</p>
+<p>Dr. Palash Biswas, Tauranga, New Zealand</p>
+<p>The year was 2011, and Palmerston North was my home—a quiet, cold, student city, nestled between green hills, and windmills. I was a PhD scholar at Massey University, my days steeped in research and the gentle rhythm of student life.</p>
+<p>I was buzzing with excitement, about to set off on my big adventure. Flights were booked, hotels were confirmed, all the sightseeing were planned. I would be flying to LA, then staying at the University of Florida for six months before visiting Miami, Orlando, Seattle, Washington, and New York. I will then fly to Düsseldorf, take a train to Berlin, followed by overnight train to Switzerland, stay at my friend, Anewsha’s house in Lausanne and visit Interlaken in the Swiss Alps, Basel, Bern, Geneva, Luzern, before returning to Paris. After enjoying Paris for few days, I will fly to India to spend time with family before visiting sunlit, sky-scrapper filled Dubai, catching up friends in Melbourne, and then back to Auckland.</p>
+<p>Night before my flight. Bags were packed. As dusk settled on Palmy sky, I stepped outside. I had to go to supermarket to buy few last-minute stuffs. That evening, the supermarket buzzed with life, aisles humming with the clatter of trolleys and casual chatter.</p>
+<p>My mind engrossed with the details of my upcoming journey. Suddenly my phone rings.</p>
+<p>Tring!! Tring!!</p>
+<p>I fumbled for my phone, answering with a nervous, "Hello?"</p>
+<p>A calm yet urgent voice replied, “Is this Mr. Biswas speaking?”</p>
+<p>“Yes, this is Palash speaking”</p>
+<p>“This is Sue from Air New Zealand. I’m calling to inform you that your flight has been cancelled—most flights have been diverted to Christchurch due to the emergency response.”</p>
+<p>My heart sank - “but I have an international connection to the US?”</p>
+<p>“Sorry, most flights are redirected to Christchurch to evacuate those stranded after the earthquake. However, there will be one flight departing early morning to Auckland. If you come to the airport early, there’s a chance you may get a seat if someone doesn’t show up.” Sue continued firmly.</p>
+<p>“Thank you, Sue,” the shock settling in as I hung up.</p>
+<p>February 22nd - Tuesday afternoon - a major earthquake struck in Christchurch, caused widespread damage, killing over 180 people. News of the earthquake had already begun to filter through. The devastation in Christchurch was overwhelming—it was a national emergency.</p>
+<p>Returned home that evening, I explained everything to my flatmate, Ian.</p>
+<p>“Don’t worry. We’ll leave early—if you can’t get on that flight, I will drive you to Auckland airport.” Ian assured me.</p>
+<p>Restless, anxieties buzzing in my mind. At 3:00 AM, Ian and I set out for the Palmy airport, the city still cloaked in darkness. The terminal was already crowded with hopeful faces, everyone quietly desperate for a seat. Boarding began! I watched as names were called, seats are getting filled.</p>
+<p>Ten minutes before the gate closed, no news! Almost giving up.</p>
+<p>Five minutes to go…. Suddenly, over the loudspeaker, echoed my name.</p>
+<p>"Mr. Biswas, please proceed to the gate for boarding. This is the final call."</p>
+<p>With huge relief, I hurried to the counter. “You are lucky, that was the last seat.” —Lady said. When I finally boarded the flight, I looked out at the early morning sky, feeling so thankful.</p>
+<p>Flying from Auckland to California via Nadi (Fiji), I landed Los Angeles after nearly 22 hours. I left New Zealand on Sunday and, after two days and crossing two oceans, it was still Sunday here. Jet-lagged, the date and time felt completely off.</p>
+<p>When I finally stepped out of the LA airport, everything felt strange and different. The city was busy as usual. Every car driving by, every sound, and every palm tree reminded me that I was far from home, in a whole new place.</p>
+<p>In the heart of California, I found out that next day is Oscar, I think it was the 27th February. I felt really lucky to soak myself on a star-studded journey. Oscar preparation was in full swing; you could feel the buzz at the Kodak Theatre. The vibrant energy of Los Angeles streets was palpable. I got a glance of the red carpet, surrounded by the glitz and glamour of the Hollywood.</p>
+<p>Cannot explain the feelings. It seemed every street, every corner, the Madame Tussauds Museum, pub crawling, walking tour of the Hollywood actors' residences at Beverly Hills, models posing along the avenues, and the bustling shopping malls, Santa Monica beach - all telling a story. Who can forget the Hollywood Walk of Fame—a landmark with over 2,700 stars, embedded in the pavement along Hollywood Boulevard and Vine Street, honouring achievements.</p>
+<p>Leaving the allure of Hollywood behind, I set my sights on the University of Florida, nestled in the city of Gainesville. My flight landed at Gainesville Airport at around 9:00 PM, the darkness of the Florida night enveloping me as I got off from the plane. The excitement and nervousness of starting my journey at the University of Florida were mixed with weariness after a long flight.</p>
+<p>My host supervisor, Prof Jeffrey Brecht was supposed to pick me up from the airport, and so I waited, glancing at my phone for the messages. The airport was small, and with my flight being the last one for the night, most of the passengers had already left.</p>
+<p>10:00 PM. I watched nervously as the airport staff closed up shop, and the terminal began to quiet down. My anticipation slowly turned into concern as the minutes ticked away, and there was still no sign of my supervisor.</p>
+<p>As the clock inched past midnight, panic began to set in. I didn't know anyone in Gainesville, and the thought of being stranded at the airport was daunting. I approached the information desk, hoping they could assist me, but they could only offer sympathy and the suggestion to call my supervisor.</p>
+<p>I ringed my supervisor. No luck—straight to voicemail, again and again. Back in 2011, phones weren’t great as today, mostly used for calls and texts, and playing games. I kept trying, but still nothing. Feeling a little lost, I opened my laptop to email him, but the battery died! All I could do was sit, wait, and hope my supervisor would show up.</p>
+<p>Just when my anxiety reaching its peak, something amazing happened—must be Gods plan! Out of the blue, I spotted a familiar face in the terminal—Abhishek da (a senior from BCKV, my Alma mater in India) —wandering and looking for someone. At that time, he was pursuing his PhD at the University of Florida.</p>
+<p>Remember old Orkut days. Facebook was not as common as today. Also, Instagram wasn't a thing back then. I contacted Abhishek da on Orkut before leaving New Zealand and told him when I’d get to Gainesville. He said, “I can pick you up from the airport”. But I told him not to worry because my supervisor would be there.</p>
+<p>Strangely, Abhi da remembered my flight date and time. He wasn’t supposed to be at the airport that night, but don’t know why? He just went to the airport to check. What are the odds of that happening?</p>
+<p>“Palash, tui ekhane? Tor supervisor aseni?” he was surprised to see me.</p>
+<p>Feeling relieved, I hurried over to him, “Abhi da…thank you. Ami to bhabini tumi asbe (didn’t expect you will be here!).” I explained everything what happened.</p>
+<p>He smiled, and pat on my back, “chal amar sange, amader flat e! Tomorrow morning we will sort it out”. We drove through the quiet streets of Gainesville to his apartment.</p>
+<p>The next morning, he took me to the Department of Horticulture. As we arrived at the department, I saw my supervisor in his office. His eyes widened, looked relieved and apologetic. He explained that he had fallen asleep on the sofa while watching the Oscar that night and had only woken up at 2:00 AM. Panicked and embarrassed, he rushed to the airport, but by then, I had left.</p>
+<p>Despite the initial hiccup, my time at the University of Florida stands out as one of the most rewarding and memorable experiences of my life. My days were a blend of research, experiments in the lab, taking classes, field visits, and friendly conversations over coffee, half-priced burgers Monday and jug of beers at a local bar, circles of friends from Greece, Peru and Mexico. My supervisor and I shared a laugh over the mix-up, and my senior became a cherished friend.</p>
+<p>Sometimes, unexpected twists of fate lead us to the people who matter most in our journey. Gainesville had become a second home.</p>
+<p>I visited Miami, known for its beautiful beaches, nightlife, and blend of Latin and American cultures. I walked along South Beach, including an interesting and unique experience in visiting a clothing optional beach. The city was full of energy, with colourful buildings and music playing everywhere. I tried Cuban coffee in Little Havana, explored beautiful gardens, and saw the city light up at night. Every part of Miami trip was fun.</p>
+<p>Six months flashed by like a vivid dream. As they say, all good things must end. Time has come to say goodbye. Last few days were emotional rollercoaster, bittersweet. Cleaned the desks, lab notebooks packed, farewell dinners with close friends, promises to keep in touch and set off for next part of my journey - to attend an international conference in Leavenworth, Seattle.</p>
+<p>What I didn’t expect, however, was the twist that awaited me.</p>
+<p>Amid the excitement, I realised that my passport was still with the European consulate for my Schengen visa application. Emails bounced back and forth, calls were made, and each day brought mounting anxiety. Time was running out.</p>
+<p>I had to fly. Being an international student at Massey University in New Zealand, originally from India, it was a nervous moment flying in US without passport. I decided to collect as much document as possible. Both my Professor and University Student Support Office provided me supporting letters.</p>
+<p>Finally, the day arrived. My friend drove me to the Orlando International Airport, where I would be flying to Texas, then Seattle. We hugged and said goodbye.</p>
+<p>Airports in the US are generally larger and busier than those in New Zealand. The terminal was crowded, and there was a long line for check-in. After queuing for nearly an hour, I reached the front of the check-in counter, bracing myself for what would come next.</p>
+<p>Here is an officer with a commanding voice, “passport”.</p>
+<p>“Sorry, I don’t have passport” – nervously I confessed.</p>
+<p>Officer looked up with a cold eye and emotionless face “What? What you do you mean you don’t have passport”?</p>
+<p>“Sorry, I had a passport, but I applied for a Schengen visa, I didn’t get back from the consulate yet.”</p>
+<p>Officer turned back and pointed to another lady officer. She asked me to come aside.</p>
+<p>“Where is your passport” – she asked me the same question.</p>
+<p>I replied the same. The officer’s eyebrow soared like a startled hawk.</p>
+<p>“Sir, what documents do you have as an ID proof?” she asked firmly.</p>
+<p>I showed the NZ Driver licence, and University of Florida student ID card.</p>
+<p>“What else you have” – she demanded.</p>
+<p>I showed her the university letters.</p>
+<p>“What else?”</p>
+<p>I emptied my backpack, and wallet - showed all the NZ bank cards, credit cards, Massey Student ID, whatever I have.</p>
+<p>“What else?” She asked again. Doubts lingering.</p>
+<p>“That’s all I have” – I was anxious and felt uneasy.</p>
+<p>She instructed me - just sit here. Then she started talking to someone over the walkie-talkie. Possibly her supervisor.</p>
+<p>Here arrives a tall, overweight officer, tummy twice the size of Peppa pig’s daddy! Quite intimidating.</p>
+<p>“Sir, where is your passport” queried the officer with a stoic demeanour.</p>
+<p>“Sorry…...” Same question, same answer.</p>
+<p>“What else do you have as ID proof”?</p>
+<p>One after another, I showed everything again. Frustrated, he started calling someone on phone, perhaps his manager. I became very nervous.</p>
+<p>Come another officer. Same sequence of questions! Same sort answers!</p>
+<p>Two officers then started chatting privately as I anxiously waited for the verdict.</p>
+<p>“All good, have a safe flight!” – the officer said at last. Till today, I wonder what has convinced the officer that day.</p>
+<p>Anyway, the clouds started to part. Feeling relieved! Yet fate was not finished—there was another twist waiting.</p>
+<p>Panicked, flustered, I went inside.</p>
+<p>After the stressful interrogation and worries about missing my flight, I saw groups of people moving through the terminals on either side of a wall—some heading in, others coming out my way.</p>
+<p>I followed the group of people who were going in. Little I knew those people was exiting the airport rather than heading to the gates.</p>
+<p>Goodness me, worst happened. This was the very nightmare I dreaded at that moment.</p>
+<p>I made an exit.</p>
+<p>Once I realised, I turned back and tried to enter.</p>
+<p>“Hey, where you are going, you can’t go this way, go back” – the security person yelled.</p>
+<p>“Sorry Sir, I already checked in, but by mistake I made an exit” – I explained.</p>
+<p>“No, you cannot come in, you have to check-in again”</p>
+<p>“It was a genuine mistake” – I desperately said.</p>
+<p>“Sorry, Sir you have to go back” – he firmly replied.</p>
+<p>Realised nothing I could do; I hurriedly went back to queue.</p>
+<p>Now panicked. Reality set in, my concern was that I would miss the flight, or I would not be permitted to board the flight.</p>
+<p>Slowly, I moved to the counter….guess what!! In front of THE SAME OFFICER.</p>
+<p>He looked up at me and immediately recognised. He started showing disbelief on his face, almost doubting himself. Sceptical and raised eyebrows, he said, “Hey you’re here again?”</p>
+<p>I explained to him everything.</p>
+<p>Looking at my poor face, he understood what happened, and started laughing!</p>
+<p>“Go man, go, if you keep doing this, you will miss your flight” – he exclaimed with a hearty laugh and a bit of mercy.</p>
+<p>Relieved, started running, 2 minutes before the gate closed. Finally, I am inside flight and flying. A close shave worthy of any cliffhanger.</p>
+<p>Landed in Tacoma International Airport, Seattle, and then took a bus to Leavenworth where the conference was held. Leavenworth is a beautiful, charming Bavarian village nestled in the picturesque Cascade Mountains, about 200 kilometres east of Seattle.</p>
+<p>Fortunately, my passport has arrived by now in Gainesville. My friend collected and couriered urgently.</p>
+<p>After concluding the conference, I returned to coffee-loving city of Seattle. The Space Needle and Pike Place Market, Boeing Everett Factory were just a few of the iconic landmarks I explored before my next destination to New York. Times Square, Central Park, the Statue of Liberty, 9/11 WTC were included in my list. After spending few days in New York, I flew out from US on my way to Düsseldorf, Germany.</p>
+<p>When I landed in Düsseldorf, I thought back to my crazy rush at the airport, almost missing my flight, and the long trip from Florida, the mountains of Washington to busy New York City. I got off the plane into a warm German morning, still excited from everything that had happened.</p>
+<p>Life can be full of surprises, but sometimes things work out if we just keep going.</p>
+<p>As I walked into the Berlin city, I had one more story to share.</p>
+<p>No. Let’s stop here. I will tell next part of this journey in another time….!!</p>
+</div>
+
+</div>
+
+<div class="part-nav">
+  <div>
+    <span class="label">Previous: Part One</span>
+    <a href="part-one.html">&larr; Welcome &amp; Front Matter</a>
+  </div>
+  <div class="next-side">
+    <span class="label">Next: Part Four</span>
+    <a href="part-four.html">Guest Authors &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-logo">
+        <img src="data:image/png;base64,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" alt="TPCH"/>
+        <div class="foot-name">Tauranga Probasi<br>Cultural Heritage Inc.</div>
+      </div>
+      <p class="fp">A registered community organisation preserving Bengali &amp; Eastern Indian cultural heritage in Tauranga, Aotearoa New Zealand.</p>
+      <p class="fp" style="margin-top:8px;font-size:11px;color:rgba(245,240,232,0.22)">taurangaprobasi.nz</p>
+    </div>
+    <div>
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="festival.html">Probasi Cultural Festival</a></li>
+        <li><a href="celebrations.html">Celebrations</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="emagazine.html">eMagazine</a></li>
+        <li><a href="support.html">Support Us</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li style="word-break:break-all;font-size:11px;">tpchconnect@gmail.com</li>
+        <li><a href="#">Tauranga, Bay of Plenty</a></li>
+        <li><a href="#">Aotearoa New Zealand</a></li>
+      </ul>
+      <h4 style="margin-top:18px">Our funders</h4>
+      <ul>
+        <li><a href="#">COGS</a></li>
+        <li><a href="#">ECDF</a></li>
+        <li><a href="#">TECT</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <p>© 2026 Tauranga Probasi Cultural Heritage Incorporated</p>
+    <p>Proudly serving Tauranga's Bengali &amp; Eastern Indian community</p>
+  </div>
+</footer>
+
+</body>
+</html>
